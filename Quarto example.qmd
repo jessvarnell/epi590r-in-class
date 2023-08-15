@@ -1,0 +1,41 @@
+---
+title: "My new quarto doc"
+author: "Jess"
+format: html
+editor: visual
+---
+
+*italic text*
+
+**bold text**
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## This is my code
+
+When you click the **Render** button a document will be generated that includes both content and the output of *embedded code*. You can embed **code** like this:
+
+## Mean
+
+```{r}
+mean(3,4, 8,9,0,1,2,5,6,7)
+```
+
+## Median
+
+```{r}
+median(6,7,8,9,1,2)
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+> The `echo: false` option disables the printing of code (only output is displayed).
+
+$x^2 + 3x +8$
