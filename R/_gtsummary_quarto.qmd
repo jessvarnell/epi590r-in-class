@@ -53,7 +53,11 @@ tbl_summary(
 ```
 
 ```{r}
-tbl_summary(
+#| label: tbl-one
+#| tbl-cap: "This table is well-labeled"
+#| echo: false
+
+table1 <- tbl_summary(
   nlsy,
   by = sex_cat,
   include = c(sex_cat, race_eth_cat,
@@ -71,7 +75,17 @@ tbl_summary(
   bold_labels() |> 
   modify_footnote(update = everything() ~ NA) |> 
   modify_header(label = "**Variable**", p.value = "**P**")
+
+table1
+
+stats <- list(n = nrow(nlsy), mean_age = mean(nlsy$age_bir, na.rm = TRUE))
+
 ```
+Males had a greater average age (`r gtsummary::inline_text(table1, variable = "age_bir", column = "Male")`) at first birth than females (`r gtsummary::inline_text(table1, variable = "age_bir", column = "Female")`).
+
+More males (`r gtsummary::inline_text(table1, variable = "eyesight_cat", level = "Excellent", column = "Male")`) had excellent vision than females (`r gtsummary::inline_text(table1, variable = "eyesight_cat", level = "Excellent", column = "Female")`)
+
+There were `r stats$n` participants with a mean age at first birth of `r round(stats$mean_age, 0)`.
 
 # Univariate regression
 
@@ -115,6 +129,8 @@ logistic_model <- glm(glasses ~ eyesight_cat + sex_cat + income,
 ```
 
 ## Tables
+
+@tbl-one contains descriptive statistics
 
 ```{r}
 tbl_regression(
