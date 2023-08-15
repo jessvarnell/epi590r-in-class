@@ -1,9 +1,11 @@
 ---
 title: "gtsummary in quarto"
 format: html
+theme: superhero
 execute:
   cache:  true
 ---
+#| include: false is a shortcut for echo and message
 
 ```{r}
 #| echo: false
