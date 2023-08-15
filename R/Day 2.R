@@ -3,6 +3,7 @@
 
 install.packages("renv")
 
+
 renv::init()
 renv::snapshot()
 renv::status()
@@ -89,3 +90,8 @@ raise <- function(x, power=2){
 raise(x=7)
 
 raise(x=7, power=4)
+
+raise(x=2, power=100)
+
+raise(3)
+
